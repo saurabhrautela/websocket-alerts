@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+    alerts:
+        build: .
+        image: alerts
+        restart: unless-stopped
+        ports:
+            - 7777:7777
+        networks:
+            - public
+        command: bash -c "
+            python run.py
+            "
+
+networks:
+    public:
